@@ -12,7 +12,10 @@ if(isset($_POST['login'])) {
     $qrows = mysqli_num_rows($qresp);
 
     if($qrows) {
-        $_SESSION['uname'] = $username;
+        $row = mysqli_fetch_array($qresp);
+
+        $_SESSION['uname'] = $row['username'];
+        $_SESSION['utype'] = $row['type'];
         header("Location: /courierpod/home.php");
     }
     else {
