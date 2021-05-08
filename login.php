@@ -1,6 +1,8 @@
 <?php
 include "dbconfig.php";
 
+$err_msg = "";
+
 if(isset($_POST['login'])) {
     session_start();
 
@@ -19,16 +21,22 @@ if(isset($_POST['login'])) {
         header("Location: /courierpod/home.php");
     }
     else {
-        echo "Incorrect credentials. Please try again.";
+        $err_msg = "Incorrect credentials. Please try again.";
     }
 }
-
-else {
 ?>
+
 <html>
 <h1 style="text-align: center">Courier-Pod</h1>
 <h2 style="text-align: center">Courier Managment System</h2>
 <h3 style="text-align: center">Employee Login</h3>
+<p>
+
+<?php
+    if($err_msg) {
+        echo "<p>$err_msg</p>";
+    }
+?>
 
 <form action="<?php echo $_SERVER['PHP_SELF']?>" method="POST">
 
@@ -46,6 +54,3 @@ else {
     <input type="submit" name="login" value="Login"/>
 </form>
 </html>
-<?php
-}
-?>
