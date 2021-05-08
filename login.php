@@ -27,7 +27,8 @@ else {
 ?>
 <html>
 <h1 style="text-align: center">Courier-Pod</h1>
-<h2 style="text-align: center">Admin Login</h2>
+<h2 style="text-align: center">Courier Managment System</h2>
+<h3 style="text-align: center">Employee Login</h3>
 
 <form action="<?php echo $_SERVER['PHP_SELF']?>" method="POST">
 
