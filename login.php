@@ -2,6 +2,8 @@
 include "dbconfig.php";
 
 $err_msg = "";
+session_start();
+session_destroy();
 
 if(isset($_POST['login'])) {
     session_start();

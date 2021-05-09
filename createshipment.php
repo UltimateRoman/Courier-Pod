@@ -35,6 +35,11 @@ if($_SESSION['uname']) {
 <h1 style="text-align: center">Courier-Pod</h1>
 <h2 style="text-align: center">Create a new Shipment</h2>
 
+<p style="font-size:20px"><a href='/courierpod/home.php'>Home</a> &nbsp;&nbsp;
+<a href='/courierpod/updateshipment.php'>Update shipment</a> &nbsp;&nbsp;
+<a href='/courierpod/logout.php'>Logout</a></p>
+<p>
+
 <?php
     if($msg) {
         echo "<b>$msg</b>";
@@ -50,7 +55,7 @@ if($_SESSION['uname']) {
             <td><input type="text" name="from_name" required/></td>
         </tr>
         <tr>
-            <td>Sender Address</td>
+            <td>Shipper Address</td>
             <td><textarea name="from_addr" rows="4" cols="40" required></textarea></td>
         </tr>
         <tr>
@@ -100,7 +105,8 @@ if($_SESSION['uname']) {
             <td><input type="text" name="contact" required/></td>
         </tr>
     </table>
-
+    <br><br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
     <input type="submit" name="create" value="Create"/>
 </form>
 
