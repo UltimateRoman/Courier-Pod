@@ -47,6 +47,10 @@ if($_SESSION['uname']) {
 <h1 style="text-align: center">Courier-Pod</h1>
 <h2 style="text-align: center">Register Employees</h2>
 
+<p style="font-size:20px"><a href='/courierpod/home.php'>Home</a> &nbsp;&nbsp;
+<a href='/courierpod/logout.php'>Logout</a></p>
+<p>
+
 <?php
     if($msg) {
         echo "<b>$msg</b>";
