@@ -8,8 +8,8 @@ session_destroy();
 if(isset($_POST['login'])) {
     session_start();
 
-    $username = $_POST['username'];
-    $password = $_POST['password'];
+    $username = strip_tags($_POST['username']);
+    $password = strip_tags($_POST['password']);
 
     $qresp = mysqli_query($dbconn, "select * from admin where username='$username' and password=md5('$password')");
 
@@ -29,13 +29,14 @@ if(isset($_POST['login'])) {
 ?>
 
 <html>
-<h1 style="text-align: center">Courier-Pod</h1>
-<h2 style="text-align: center">Courier Managment System</h2>
-<h3 style="text-align: center">Employee Login</h3>
+<link href="css/styles.css" rel="stylesheet"/>
+<h1>Courier-Pod</h1>
+<h2>Courier Managment System</h2>
+<h3>Employee Login</h3>
 <p>
 
-<p style="font-size: 20px">
-    <a href="/courierpod/index.html">Home-Page</a>
+<p id="links">
+    <a href="/courierpod/index.html">Home-Page</a>&nbsp;&nbsp;&nbsp;&nbsp;
     <a href="/courierpod/trackpackage.php">Track shipments</a>
 </p>
 
@@ -44,7 +45,7 @@ if(isset($_POST['login'])) {
         echo "<p>$err_msg</p>";
     }
 ?>
-
+<br><br>
 <form action="<?php echo $_SERVER['PHP_SELF']?>" method="POST">
 
     <table>
@@ -57,7 +58,9 @@ if(isset($_POST['login'])) {
             <td><input type="password" name="password" required/></td>
         </tr>
     </table>
-
-    <input type="submit" name="login" value="Login"/>
+    <br><br>
+    <div class="button">
+        <input type="submit" name="login" value="Login"/>
+    </div>
 </form>
 </html>

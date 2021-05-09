@@ -28,9 +28,9 @@ if($_SESSION['uname']) {
     }
 
     else if(isset($_POST['update'])) {
-        $shipmentid = $_POST['shipmentid'];
+        $shipmentid = strip_tags($_POST['shipmentid']);
         $status = $_POST['status'];
-        $location = $_POST['location'];
+        $location = strip_tags($_POST['location']);
 
         $qresp = mysqli_query($dbconn, "select * from consignments where shipmentid='$shipmentid'");
 
@@ -53,11 +53,12 @@ if($_SESSION['uname']) {
 ?>
 
 <html>
-<h1 style="text-align: center">Courier-Pod</h1>
-<h2 style="text-align: center">Courier Managment System</h2>
-<h2 style="text-align: center">Update Shipments</h2>
+<link href="css/styles.css" rel="stylesheet"/>
+<h1>Courier-Pod</h1>
+<h2>Courier Managment System</h2>
+<h3>Update Shipments</h3>
 
-<p style="font-size:20px"><a href='/courierpod/home.php'>Home</a> &nbsp;&nbsp;
+<p id="links"><a href='/courierpod/home.php'>Home</a> &nbsp;&nbsp;
 <a href='/courierpod/createshipment.php'>Create shipment</a> &nbsp;&nbsp;
 <a href='/courierpod/logout.php'>Logout</a></p>
 <p>
@@ -71,7 +72,7 @@ if($_SESSION['uname']) {
 
 <form action="<?php echo $_SERVER['PHP_SELF']?>" method="POST">
 
-    <table>
+    <table >
         <tr>
             <td>Enter Shipment ID  </td>
             <td><input type="text" name="shipmentid" required/></td>
@@ -80,7 +81,11 @@ if($_SESSION['uname']) {
             <td>&nbsp;</td>
         </tr>
         <tr>
-            <td><input type="submit" name="delete" value="Delete Shipment"/></td>
+            <td>
+                <div class="button">
+                    <input type="submit" style="background-color: salmon" name="delete" value="Delete Shipment"/>
+                </div>
+            </td>
         </tr>
         <tr>
             <td>&nbsp;</td>
@@ -107,8 +112,9 @@ if($_SESSION['uname']) {
             <td>&nbsp;</td>
         </tr>
     </table>
-
-    <input type="submit" name="update" value="Update Status"/>
+    <div class="button">
+        <input type="submit" name="update" value="Update Status"/>
+    </div>
 </form>
 
 </html>

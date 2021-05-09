@@ -19,15 +19,15 @@
 ?>
 
 <html>
-
-<h1 style="text-align: center">Courier-Pod</h1>
-<h2 style="text-align: center">Courier Managment System</h2>
+<link href="css/styles.css" rel="stylesheet"/>
+<h1>Courier-Pod</h1>
+<h2>Courier Management System</h2>
 
 <?php
-    echo "<p style='font-size: 20px'>Welcome, ".$_SESSION['uname']."<br>".$_SESSION['utype']."</p>";
+    echo "<p>Welcome, ".$_SESSION['uname']."<br>".$_SESSION['utype']."</p>";
 ?>
 
-<p style="font-size:20px"><a href='/courierpod/createshipment.php'>Create shipment</a> &nbsp;&nbsp;
+<p id="links"><a href='/courierpod/createshipment.php'>Create shipment</a> &nbsp;&nbsp;
 <a href='/courierpod/updateshipment.php'>Update shipment</a> &nbsp;&nbsp;
 <?php
     if($_SESSION['utype']=='manager') {
@@ -37,29 +37,28 @@
 <a href='/courierpod/logout.php'>Logout</a></p>
 <p>
 
-<h2 style="text-align: center">Available Shipments</h2>
+<h3>Available Shipments</h3>
 
 <form action="<?php echo $_SERVER['PHP_SELF']?>" method="POST">
     <table>
         <tr>
-            <td style="font-size: 20px">Enter Shipment ID</td>
+            <td>Enter Shipment ID</td>
             <td><input type="text" name="shipmentid" required/></td>
             <td><input type="submit" name="search" value="Search"/></td>
         </tr>
     </table>
 </form>
-<br>
 <?php
     if($msg) {
         echo "<b>$msg</b>";
     }
 ?>
 <p>
-<table border="1" width="100%">
+<table border="1" width="auto">
     <tr>
         <th>Shipment ID</th>
         <th>Shipper Details</th>
-        <th>Consignee Detils</th>
+        <th>Consignee Details</th>
         <th>Booked on</th>
         <th>(Est)/Delivery on</th>
         <th>Current Status</th>

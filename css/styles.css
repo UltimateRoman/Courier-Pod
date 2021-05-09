@@ -1,0 +1,73 @@
+h1 {
+    text-align: center;
+    color: slateblue;
+}
+
+h2 {
+    text-align: center;
+    color: darkgreen;
+}
+
+h3 {
+    text-align: center;
+    font-size: 22px;
+}
+
+p {
+    font-size: 20px;
+}
+
+b {
+    font-size: 20px;
+}
+
+
+th {
+    font-size: 18px;
+}
+
+td {
+    font-size: 18px;
+    padding: 5px;
+}
+
+#logout {
+    font-size: 25px;
+    text-align: center;
+}
+
+#links {
+    text-align: center;
+}
+
+table {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+input[type=submit] {
+    text-align: center;
+    font-size: 18px;
+    padding: 5px 10px;
+    color: darkblue;
+    border-radius: 10%;
+    background-color: lightgreen;
+}
+
+input[type=text] {
+    font-size: 16px;
+    padding: 4px 10px;
+}
+
+input[type=password] {
+    font-size: 16px;
+    padding: 4px 10px;
+}
+
+select {
+    font-size: 16px;
+}
+
+.button {
+    text-align: center;
+}

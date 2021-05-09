@@ -3,16 +3,18 @@ include "dbconfig.php";
 ?>
 
 <html>
-<h1 style="text-align: center">Courier-Pod</h1>
-<h2 style="text-align: center">Track Shipments</h2>
+<link href="css/styles.css" rel="stylesheet"/>
+<h1>Courier-Pod</h1>
+<h2>Courier Managment System</h2>
+<h3>Track Shipments</h3>
 
-<p style="font-size:20px"><a href='/courierpod/index.html'>Home-Page</a> &nbsp;&nbsp;
+<p id="links"><a href='/courierpod/index.html'>Home-Page</a> &nbsp;&nbsp;
 <p>
 
 <form action="<?php echo $_SERVER['PHP_SELF']?>" method="POST">
     <table>
         <tr>
-            <td style="font-size: 20px">Enter Shipment ID (Tracking No) &nbsp;</td>
+            <td>Enter Shipment ID (Tracking No) &nbsp;</td>
             <td><input type="text" name="shipmentid" required/>&nbsp;</td>
             <td><input type="submit" name="track" value="Track Shipment"/></td>
         </tr>
@@ -21,7 +23,7 @@ include "dbconfig.php";
 
 <?php
     if(isset($_POST['track'])) {
-        $shipmentid = $_POST['shipmentid'];
+        $shipmentid = strip_tags($_POST['shipmentid']);
 
         $qresp = mysqli_query($dbconn, "select * from consignments where shipmentid='$shipmentid'") or die(mysqli_error());
 
@@ -34,11 +36,12 @@ include "dbconfig.php";
             $r1 = mysqli_fetch_array($qresp1);
             $loc = $r1['location'];
 
-            echo "<h2>Shipment ID: ".$row['shipmentid']."</h2>";
+            echo "<h2 style='color: crimson'>Shipment ID: ".$row['shipmentid']."</h2>";
+            echo "<p id='links'>Destination: ".$row['to_addr']."</p>";
             echo "<h2>Current Status: ".$row['current_status']." - $loc</h2>";
             echo "<h3>(Est)/Delivery On: ".$row['est_deliverydate']."</h3>";
-            echo "<h3>Booked On: ".$row['booked_date']."</h3><br>";
-            echo "<h3>History</h3><br>";
+            echo "<h3>Booked On: ".$row['booked_date']."</h3>";
+            echo "<h3 style='color: darkmagenta'>History</h3>";
         ?>
 
         <table border="1">

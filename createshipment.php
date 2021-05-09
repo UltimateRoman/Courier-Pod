@@ -7,17 +7,17 @@ $msg = "";
 if($_SESSION['uname']) {
     if(isset($_POST['create'])) {
         $shipmentid = uniqid();
-        $from_name = $_POST['from_name'];
-        $from_addr = $_POST['from_addr'];
-        $to_name = $_POST['to_name'];
-        $to_addr = $_POST['to_addr'];
-        $est_deliverydate = $_POST['est_deliverydate'];
+        $from_name = strip_tags($_POST['from_name']);
+        $from_addr = strip_tags($_POST['from_addr']);
+        $to_name = strip_tags($_POST['to_name']);
+        $to_addr = strip_tags($_POST['to_addr']);
+        $est_deliverydate = strip_tags($_POST['est_deliverydate']);
         $current_status = "Booked";
         $category = $_POST['category'];
-        $package_details = $_POST['package_details'];
-        $amount = $_POST['amount'];
+        $package_details = strip_tags($_POST['package_details']);
+        $amount = strip_tags($_POST['amount']);
         $prepaid = $_POST['prepaid'];
-        $contact = $_POST['contact'];
+        $contact = strip_tags($_POST['contact']);
 
         $query = "insert into consignments(shipmentid, from_name, from_addr, to_name, to_addr, booked_date, est_deliverydate, current_status, category, package_details, amount, prepaid, contact) values('$shipmentid', '$from_name', '$from_addr', '$to_name', '$to_addr', current_date, '$est_deliverydate', '$current_status', '$category', '$package_details', '$amount', '$prepaid', '$contact')";
 
@@ -32,10 +32,12 @@ if($_SESSION['uname']) {
 ?>
 
 <html>
-<h1 style="text-align: center">Courier-Pod</h1>
-<h2 style="text-align: center">Create a new Shipment</h2>
+<link href="css/styles.css" rel="stylesheet"/>
+<h1>Courier-Pod</h1>
+<h2>Courier Management System</h2>
+<h3>Create a new Shipment</h3>
 
-<p style="font-size:20px"><a href='/courierpod/home.php'>Home</a> &nbsp;&nbsp;
+<p id="links"><a href='/courierpod/home.php'>Home</a> &nbsp;&nbsp;
 <a href='/courierpod/updateshipment.php'>Update shipment</a> &nbsp;&nbsp;
 <a href='/courierpod/logout.php'>Logout</a></p>
 <p>
@@ -105,9 +107,10 @@ if($_SESSION['uname']) {
             <td><input type="text" name="contact" required/></td>
         </tr>
     </table>
-    <br><br>
-    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-    <input type="submit" name="create" value="Create"/>
+    <br>
+    <div class="button">
+        <input type="submit" name="create" value="Create Shipment"/>
+    </div>
 </form>
 
 

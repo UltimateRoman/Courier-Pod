@@ -44,10 +44,12 @@ if($_SESSION['uname']) {
         }
 ?>
 <html>
-<h1 style="text-align: center">Courier-Pod</h1>
-<h2 style="text-align: center">Register Employees</h2>
+<link href="css/styles.css" rel="stylesheet"/>
+<h1>Courier-Pod</h1>
+<h2>Courier Management System</h2>
+<h3>Register Employees</h3>
 
-<p style="font-size:20px"><a href='/courierpod/home.php'>Home</a> &nbsp;&nbsp;
+<p id="links"><a href='/courierpod/home.php'>Home</a> &nbsp;&nbsp;
 <a href='/courierpod/logout.php'>Logout</a></p>
 <p>
 
@@ -57,6 +59,8 @@ if($_SESSION['uname']) {
     }
 ?>
 <p>
+
+<br><br>
 
 <form action="<?php echo $_SERVER['PHP_SELF']?>" method="POST">
 
@@ -83,8 +87,10 @@ if($_SESSION['uname']) {
             <td><input type="password" name="rpassword" required/></td>
         </tr>
     </table>
-
-    <input type="submit" name="register" value="Register"/>
+    <br><br><br><br>
+    <div class="button">
+        <input type="submit" name="register" value="Register"/>
+    </div>
 </form>
 </html>
 <?php
