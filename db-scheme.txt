@@ -1,10 +1,5 @@
-create table admin(id primary key auto_increment, username varchar(20), password varchar(30), type varchar(10));
+create table admin(id int primary key auto_increment, username varchar(20), password varchar(32), type varchar(10));
 
-create table consignments(shipmentid varchar(15) primary k
-ey, from_name varchar(30), from_addr varchar(255), to_name varchar(30), to_addr
-varchar(255), booked_date date, est_deliverydate date, current_status varchar(20
-), category varchar(30), package_details varchar(30), amount int(5), prepaid int
-(1), contact varchar(30));
+create table consignments(shipmentid varchar(15) primary key, from_name varchar(30), from_addr varchar(255), to_name varchar(30), to_addr varchar(255), booked_date date, est_deliverydate date, current_status varchar(30), category varchar(25), package_details varchar(30), amount int(5), prepaid int(1), contact varchar(30));
 
-create table events(sid varchar(15) not null, status varch
-ar(30), location varchar(30), event_time datetime);
+create table events(sid varchar(15) not null, status varchar(30), location varchar(30), event_time datetime);

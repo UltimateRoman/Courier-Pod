@@ -1,3 +1,3 @@
 <?php
-$dbconn = mysqli_connect("localhost","username","password","courierpod") or die(mysqli_error()); 
+$dbconn = mysqli_connect("localhost","athul","*Asterix123*","courierpod") or die(mysqli_error()); 
 ?>
