@@ -71,3 +71,17 @@ select {
 .button {
     text-align: center;
 }
+
+.abstract {
+    margin-left: 80px;
+    margin-right: 80px;
+    display: inline-block;
+}
+
+.footer {
+    position: fixed;
+    width: 100%;
+    left: 0;
+    bottom: 0;
+    text-align: center;
+}
