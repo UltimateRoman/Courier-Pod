@@ -34,6 +34,11 @@ if(isset($_POST['login'])) {
 <h3 style="text-align: center">Employee Login</h3>
 <p>
 
+<p style="font-size: 20px">
+    <a href="/courierpod/index.html">Home-Page</a>
+    <a href="/courierpod/trackpackage.php">Track shipments</a>
+</p>
+
 <?php
     if($err_msg) {
         echo "<p>$err_msg</p>";
